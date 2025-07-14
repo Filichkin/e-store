@@ -55,9 +55,47 @@ function App() {
 }
 
 function Header(){
+  const hour = new Date().getHours();
+  const openHours = 9;
+  const closeHours = 21;
+
+  const isOpen = hour >= openHours && hour <= closeHours;
+
   return (
   <header>
     <h1>Electronic Store</h1>
+    <nav>
+      <ul>
+        <li>
+          Home
+          <a href="#home"></a>
+        </li>
+        <li>
+          Catalog
+          <a href="#catalog"></a>
+        </li>
+        <li>
+          About Us
+          <a href="#about"></a>
+        </li>
+        <li>
+          Contacts
+          <a href="#contacts"></a>
+        </li>
+      </ul>
+    </nav>
+    <div>
+      {isOpen ? (
+        <p>
+          We are currently open. Hours: {openHours}:00 
+        - {closeHours}:00
+        </p>
+      ) : (
+      <p>
+        We are closed. Open from: {openHours}:00 - {closeHours}:00
+        </p>
+      )}
+    </div>
   </header>
   );
 }
