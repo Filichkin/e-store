@@ -73,7 +73,18 @@ function Catalog() {
 }
 
 function Product() {
-  return <li>Product</li>
+  const products = [...productData];
+
+  return (
+    <li>
+      <img src={products[0].photoName} alt={products[0].name} />
+      <div>
+        <h3>{products[0].name}</h3>
+        <p>{products[0].description}</p>
+        <span>{products[0].price}</span>
+      </div>
+    </li>
+  );
 }
 
 function Footer() {
