@@ -107,7 +107,10 @@ function Catalog() {
   return (
     <main className="catalog">
       <ul className="products">
-        <Product
+        {productData.map((product) => (
+          <Product productObj={product}/>
+        ))}
+        {/* <Product
           name="Laptop Pro"
           img="/laptop.png"
           price={1200}
@@ -118,7 +121,7 @@ function Catalog() {
           img="/smartphone.png"
           price={800}
           description="Latest model with stunning display."
-        />
+        /> */}
       </ul>
     </main>
   );
@@ -128,11 +131,11 @@ function Product(props) {
 
   return (
     <li className="product">
-      <img src={props.img} alt={props.name} />
+      <img src={props.productObj.photoName} alt={props.productObj.name} />
       <div>
-        <h3>{props.name}</h3>
-        <p>{props.description}</p>
-        <span>{props.price}</span>
+        <h3>{props.productObj.name}</h3>
+        <p>{props.productObj.description}</p>
+        <span>{props.productObj.price}</span>
       </div>
     </li>
   );
