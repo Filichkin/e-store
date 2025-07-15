@@ -132,16 +132,14 @@ function Product({ productObj }) {
   // if (productObj.soldOut) return null
 
   return (
-    !productObj.soldOut && (
-      <li className="product">
-        <img src={productObj.photoName} alt={productObj.name} />
-        <div>
-          <h3>{productObj.name}</h3>
-          <p>{productObj.description}</p>
-          <span>{productObj.price}</span>
-        </div>
-      </li>
-    )
+    <li className={`product ${productObj.soldOut ? "sold-out" : ""}`}>
+      <img src={productObj.photoName} alt={productObj.name} />
+      <div>
+        <h3>{productObj.name}</h3>
+        <p>{productObj.description}</p>
+        <span>{productObj.soldOut ? "SOLD OUT" : productObj.price}</span>
+      </div>
+    </li>
   );
 }
 
