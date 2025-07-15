@@ -129,15 +129,19 @@ function Catalog() {
 
 function Product({ productObj }) {
 
+  // if (productObj.soldOut) return null
+
   return (
-    <li className="product">
-      <img src={productObj.photoName} alt={productObj.name} />
-      <div>
-        <h3>{productObj.name}</h3>
-        <p>{productObj.description}</p>
-        <span>{productObj.price}</span>
-      </div>
-    </li>
+    !productObj.soldOut && (
+      <li className="product">
+        <img src={productObj.photoName} alt={productObj.name} />
+        <div>
+          <h3>{productObj.name}</h3>
+          <p>{productObj.description}</p>
+          <span>{productObj.price}</span>
+        </div>
+      </li>
+    )
   );
 }
 
