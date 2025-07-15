@@ -127,15 +127,15 @@ function Catalog() {
   );
 }
 
-function Product(props) {
+function Product({ productObj }) {
 
   return (
     <li className="product">
-      <img src={props.productObj.photoName} alt={props.productObj.name} />
+      <img src={productObj.photoName} alt={productObj.name} />
       <div>
-        <h3>{props.productObj.name}</h3>
-        <p>{props.productObj.description}</p>
-        <span>{props.productObj.price}</span>
+        <h3>{productObj.name}</h3>
+        <p>{productObj.description}</p>
+        <span>{productObj.price}</span>
       </div>
     </li>
   );
